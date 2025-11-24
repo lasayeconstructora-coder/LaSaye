@@ -19,8 +19,8 @@
             --color-background: #F8F8F8;
             --color-text: #555555;
             --color-light: #FFFFFF;
-            --font-main: 'Fira Sans', sans-serif; /* IDEALMENTE: 'Montserrat', sans-serif */
-            --font-heading: 'Fira Sans', sans-serif; /* IDEALMENTE: 'Lato', sans-serif */
+            --font-main: 'Fira Sans', sans-serif;
+            --font-heading: 'Fira Sans', sans-serif;
         }
 
         * {
@@ -78,7 +78,6 @@
         }
 
         .logo-img {
-            /* AJUSTE: Usamos la ruta más simple para pruebas locales */
             height: 100px;
             width: auto;
             display: block;
@@ -493,7 +492,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
-                                        <img src="https://github.com/lasayeconstructora-coder/LaSaye/blob/main/Images/Logo_LA_SAYE_.png" alt="Logo de La Saye Constructora" class="logo-img">
+                                        <img src="/images/Logo_LA_SAYE_.png" alt="Logo de La Saye Constructora" class="logo-img">
                 </a>
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link">Inicio</a></li>
@@ -509,7 +508,7 @@
 
     <section class="hero-section" id="home">
         <video autoplay muted loop id="heroVideo">
-                        <source src="video/RENDER.mp4" type="video/mp4">
+                        <source src="/video/RENDER.mp4" type="video/mp4">
             Tu navegador no soporta el video de fondo.
         </video>
         <div class="container hero-content">
@@ -547,15 +546,15 @@
             <h2 class="section-title">Una Mirada al Estilo de Vida <span>Oro Andino</span></h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                                        <img src="images/El_render01.png" alt="Logo Oro Andino" style="height: auto; max-width: 100%; margin: 0px auto; min-height: unset; object-fit: contain;">
+                                        <img src="/images/El_render01.png" alt="Logo Oro Andino" style="height: auto; max-width: 100%; margin: 0px auto; min-height: unset; object-fit: contain;">
                     <p style="color: var(--color-project-gold);">Marca Exclusiva del Proyecto</p>
                 </div>
                 <div class="gallery-item">
-                                        <img src="images/El_render02.png" alt="Render Entorno Urbano">
+                                        <img src="/images/El_render02.png" alt="Render Entorno Urbano">
                     <p>Cercanía a Servicios Esenciales</p>
                 </div>
                 <div class="gallery-item">
-                                        <img src="images/El_render03.png" alt="Render Interior Acabados">
+                                        <img src="/images/El_render03.png" alt="Render Interior Acabados">
                     <p>Acabados que reflejan buen gusto y durabilidad</p>
                 </div>
             </div>
@@ -574,20 +573,17 @@
                     <p>El Proyecto Oro Andino está pensado para el bienestar y la vida social moderna, manteniendo la privacidad y exclusividad.</p>
                     <ul class="amenities-list" style="margin-top: 25px;">
                         <li class="amenity-item">Terraza Comunal con Vista Panorámica</li>
-                      
-                      
                         <li class="amenity-item">Espacio de Coworking (Home Office)</li>
                         <li class="amenity-item">Parqueaderos Privados y para Visitantes</li>
-                        
-                        
                     </ul>
                 </div>
                 <div class="amenities-image">
-                                        <img src="images/render-terraza.jpg" alt="Render de la terraza comunal Oro Andino">
+                                        <img src="/images/render-terraza.jpg" alt="Render de la terraza comunal Oro Andino">
                 </div>
             </div>
         </div>
     </section>
+
     <section id="tipologias" style="background-color: var(--color-light);">
         <div class="container">
             <h2 class="section-title">Elige Tu Espacio: Tipologías de Apartamento <span style="color: var(--color-project-gold);">Oro Andino</span></h2>
@@ -598,7 +594,7 @@
 
                 <div class="tipologia-card">
                     <h3>Torre B Apartamento Tipo 1</h3>
-                                        <img src="webMaterial/1x/El_TB_tipo1.png" alt="Plano Tipología 1" class="plano-img">
+                                        <img src="/webMaterial/1x/El_TB_tipo1.png" alt="Plano Tipología 1" class="plano-img">
                     <ul class="tipologia-details">
                         <li>**Área Total:** 70 m²</li>
                         <li>**Habitaciones:** 2 Dormitorios + Estudio</li>
@@ -611,7 +607,7 @@
 
                 <div class="tipologia-card">
                     <h3>Torre B Apartamento Tipo 2 </h3>
-                                        <img src="webMaterial/1x/El_TB_tipo2.png" alt="Plano Tipología 2" class="plano-img">
+                                        <img src="/webMaterial/1x/El_TB_tipo2.png" alt="Plano Tipología 2" class="plano-img">
                     <ul class="tipologia-details">
                         <li>**Área Total:** 85 m²</li>
                         <li>**Habitaciones:** 3 Dormitorios</li>
@@ -624,12 +620,11 @@
 
                 <div class="tipologia-card">
                     <h3>Torre A</h3>
-                                        <img src="webMaterial/1x/El_TA_tipo1.png" alt="Plano Tipología PH" class="plano-img">
+                                        <img src="/webMaterial/1x/El_TA_tipo1.png" alt="Plano Tipología PH" class="plano-img">
                     <ul class="tipologia-details">
                         <li>**Área Total:** 110 m² (Dúplex)</li>
                         <li>**Habitaciones:** 3 Dormitorios</li>
                         <li>**Baños:** 3 Completos</li>
-                       
                         <li>**Personalización:** Acabados Pde excelente calidad</li>
                     </ul>
                     <a href="#contacto" class="btn-cta" style="background-color: var(--color-secondary);">Asesoría Exclusiva</a>
@@ -691,4 +686,3 @@
 
 </body>
 </html>
-
