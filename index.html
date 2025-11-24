@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lasaye Constructora | Proyecto Oro Andino</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================================= */
+        /* VARIABLES Y RESET BÁSICO (DOMINIO LA SAYE) */
+        /* ========================================================= */
+        :root {
+            --color-primary: #2E63A6; /* LA SAYE BLUE */
+            --color-secondary: #ED1A3B; /* LA SAYE RED */
+            --color-project-gold: #BC972E; /* ORO ANDINO GOLD */
+            --color-dark-neutral: #333333;
+            --color-background: #F8F8F8;
+            --color-text: #555555;
+            --color-light: #FFFFFF;
+            --font-main: 'Fira Sans', sans-serif; /* IDEALMENTE: 'Montserrat', sans-serif */
+            --font-heading: 'Fira Sans', sans-serif; /* IDEALMENTE: 'Lato', sans-serif */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5em;
+        }
+
+        .hero-content h1 {
+            color: var(--color-light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ========================================================= */
+        /* ENCABEZADO Y NAVEGACIÓN (HEADER) */
+        /* ========================================================= */
+        .main-header {
+            background-color: var(--color-light);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            /* AJUSTE: Usamos la ruta más simple para pruebas locales */
+            height: 100px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-dark-neutral);
+            font-weight: 600;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+            .nav-link:hover {
+                color: var(--color-primary);
+            }
+
+        .btn-cta {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .btn-cta:hover {
+                background-color: #1a4f8f;
+            }
+
+        /* ========================================================= */
+        /* SECCIONES PRINCIPALES */
+        /* ========================================================= */
+        section {
+            padding: 80px 0;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            color: var(--color-light);
+            text-align: center;
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        #heroVideo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+            .hero-content h1 {
+                color: var(--color-light);
+                font-size: 3.5em;
+                margin-bottom: 20px;
+            }
+
+            .hero-content p {
+                font-size: 1.2em;
+                margin-bottom: 40px;
+                font-weight: 300;
+            }
+
+        /* BARRA DE CARACTERÍSTICAS DESTACADAS */
+        .features-bar {
+            background-color: var(--color-dark-neutral);
+            color: var(--color-light);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .feature-item {
+            flex-basis: 22%;
+        }
+
+            .feature-item h3 {
+                color: var(--color-project-gold);
+                font-size: 1.1em;
+                margin-bottom: 5px;
+                font-family: var(--font-main);
+            }
+
+            .feature-item p {
+                font-size: 0.9em;
+                opacity: 0.8;
+            }
+
+        /* GALERÍA DE IMÁGENES */
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+            .section-title span {
+                color: var(--color-secondary);
+            }
+
+        /* Ajuste: Usamos el color de La Saye como base y el dorado como acento en el proyecto */
+        #proyecto-galeria h2, #amenidades h2, #tipologias h2 {
+            color: var(--color-dark-neutral);
+        }
+
+            #proyecto-galeria h2 span, #amenidades h2 span, #tipologias h2 span {
+                color: var(--color-project-gold);
+            }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background-color: var(--color-light);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+            .gallery-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+                min-height: 200px;
+                object-fit: cover;
+            }
+
+            .gallery-item p {
+                padding: 15px;
+                font-weight: 600;
+                color: var(--color-primary);
+                margin: 0;
+            }
+
+        /* SECCIÓN AMENIDADES */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            text-align: left;
+            align-items: center;
+        }
+
+        .amenities-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .amenity-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--color-dark-neutral);
+            font-size: 1.1em;
+        }
+
+            .amenity-item::before {
+                content: '★';
+                color: var(--color-project-gold);
+                font-size: 1.5em;
+                margin-right: 15px;
+                line-height: 1;
+            }
+
+        .amenities-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* NUEVA SECCIÓN: TIPOLOGÍAS DE APARTAMENTO */
+        .tipologias-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tipologia-card {
+            background-color: var(--color-light);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+            .tipologia-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .tipologia-card h3 {
+                color: var(--color-project-gold);
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+
+        .plano-img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .tipologia-details {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+            .tipologia-details li {
+                padding: 5px 0;
+                border-bottom: 1px dashed #eee;
+                font-size: 0.95em;
+            }
+
+        /* SECCIÓN GENÉRICA (Para Quiénes Somos) */
+        .generic-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ========================================================= */
+        /* PIE DE PÁGINA (FOOTER) */
+        /* ========================================================= */
+        .main-footer {
+            background-color: var(--color-dark-neutral);
+            color: var(--color-light);
+            padding: 50px 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-column {
+            flex-basis: 30%;
+        }
+
+            .footer-column h4 {
+                color: var(--color-primary);
+                margin-bottom: 15px;
+                font-family: var(--font-main);
+                font-weight: 600;
+            }
+
+        .social-links a {
+            color: var(--color-light);
+            margin-right: 15px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .footer-nav a {
+            display: block;
+            color: var(--color-light);
+            text-decoration: none;
+            margin-bottom: 8px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+            .footer-nav a:hover {
+                opacity: 1;
+                color: var(--color-secondary);
+            }
+
+        /* ========================================================= */
+        /* MEDIA QUERIES (RESPONSIVIDAD MÓVIL) */
+        /* ========================================================= */
+        @media (max-width: 900px) {
+
+            .features-grid {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .feature-item {
+                flex-basis: 45%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tipologias-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .main-header {
+                padding: 10px 0;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-list {
+                display: none;
+                width: 100%;
+                order: 3;
+                margin-top: 15px;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .btn-cta {
+                order: 2;
+                margin-top: 10px;
+            }
+
+            .hero-section {
+                padding: 100px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .features-grid {
+                flex-direction: column;
+            }
+
+            .feature-item {
+                flex-basis: 100%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tipologias-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\website\Home2\Images\Logo_LA_SAYE_.png"" alt="Logo de La Saye Constructora" class="logo-img">
+                </a>
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Inicio</a></li>
+                    <li><a href="#proyecto-galeria" class="nav-link">Galería</a></li>
+                    <li><a href="#amenidades" class="nav-link">Amenidades</a></li>
+                    <li><a href="#tipologias" class="nav-link">Tipologías</a></li>
+                    <li><a href="#quienes-somos" class="nav-link">Confianza La Saye</a></li>
+                </ul>
+                <a href="#contacto" class="btn-cta">Agenda tu Visita</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section" id="home">
+        <video autoplay muted loop id="heroVideo">
+            <source src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\website\Home2\Video\RENDER.mp4" type="video/mp4">
+            Tu navegador no soporta el video de fondo.
+        </video>
+        <div class="container hero-content">
+            <h1>ORO ANDINO:Patrimonio, Diseño y Ubicación Estratégica</h1>
+            <p>Construimos más que espacios: te ofrecemos la oportunidad de **personalizar tu hogar**, invirtiendo en el futuro de Pupiales con el respaldo y la solidez de La Saye Constructora.</p>
+            <a href="#proyecto-galeria" class="btn-cta">Descubre el Proyecto</a>
+        </div>
+    </section>
+
+    <section class="features-bar">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Ubicación Estratégica</h3>
+                    <p>Cercano a escuelas, parques, iglesia y alcaldía, un verdadero núcleo de valorización.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Tu Hogar, Tu Estilo</h3>
+                    <p>Opciones de entrega en obra gris o con acabados personalizados a la medida de tus sueños.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Excelencia Constructiva</h3>
+                    <p>Calidad de materiales premium y diseño que garantiza durabilidad y alto valor patrimonial.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Progreso Continuo</h3>
+                    <p>Torre B finalizando, Torre A comenzando. Un proyecto que avanza con dinamismo y transparencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="proyecto-galeria">
+        <div class="container">
+            <h2 class="section-title">Una Mirada al Estilo de Vida <span>Oro Andino</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\website\Home2\Images\El_render01.png" alt="Logo Oro Andino" style="height: auto; max-width: 100%; margin: 0px auto; min-height: unset; object-fit: contain;">
+                    <p style="color: var(--color-project-gold);">Marca Exclusiva del Proyecto</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\website\Home2\Images\El_render02.png" alt="Render Entorno Urbano">
+                    <p>Cercanía a Servicios Esenciales</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\website\Home2\Images\El_render03.png" alt="Render Interior Acabados">
+                    <p>Acabados que reflejan buen gusto y durabilidad</p>
+                </div>
+            </div>
+            <div class="generic-content" style="margin-top: 40px;">
+                <a href="#" class="btn-cta">Descarga Nuestro Brochure Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenidades">
+        <div class="container">
+            <h2 class="section-title">Amenidades <span style="color: var(--color-project-gold);">Premium</span></h2>
+            <div class="amenities-grid">
+                <div>
+                    <h3 style="color: var(--color-dark-neutral);">Diseño y Exclusividad</h3>
+                    <p>El Proyecto Oro Andino está pensado para el bienestar y la vida social moderna, manteniendo la privacidad y exclusividad.</p>
+                    <ul class="amenities-list" style="margin-top: 25px;">
+                        <li class="amenity-item">Terraza Comunal con Vista Panorámica</li>
+                      
+                      
+                        <li class="amenity-item">Espacio de Coworking (Home Office)</li>
+                        <li class="amenity-item">Parqueaderos Privados y para Visitantes</li>
+                        
+                        
+                    </ul>
+                </div>
+                <div class="amenities-image">
+                    <img src="render-terraza.jpg" alt="Render de la terraza comunal Oro Andino">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tipologias" style="background-color: var(--color-light);">
+        <div class="container">
+            <h2 class="section-title">Elige Tu Espacio: Tipologías de Apartamento <span style="color: var(--color-project-gold);">Oro Andino</span></h2>
+            <div class="generic-content" style="max-width: 900px; margin-bottom: 40px;">
+                <p>La personalización es nuestro pilar. Oro Andino ofrece diseños flexibles para que elija el espacio perfecto para su familia, con la opción de entrega en obra gris o con acabados exclusivos.</p>
+            </div>
+            <div class="tipologias-grid">
+
+                <div class="tipologia-card">
+                    <h3>Torre B Apartamento Tipo 1</h3>
+                    <img src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\webMaterial\1x\El_TB_tipo1.png" alt="Plano Tipología 1" class="plano-img">
+                    <ul class="tipologia-details">
+                        <li>**Área Total:** 70 m²</li>
+                        <li>**Habitaciones:** 2 Dormitorios + Estudio</li>
+                        <li>**Baños:** 2 Completos</li>
+                        <li>**Balcón:** Sí</li>
+                        <li>**Personalización:** Obra Gris o Acabados</li>
+                    </ul>
+                    <a href="#contacto" class="btn-cta" style="background-color: var(--color-project-gold);">Ver Disponibilidad</a>
+                </div>
+
+                <div class="tipologia-card">
+                    <h3>Torre B Apartamento Tipo 2 </h3>
+                    <img src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\webMaterial\1x\El_TB_tipo2.png" alt="Plano Tipología 2" class="plano-img">
+                    <ul class="tipologia-details">
+                        <li>**Área Total:** 85 m²</li>
+                        <li>**Habitaciones:** 3 Dormitorios</li>
+                        <li>**Baños:** 2 Baños + Baño Social</li>
+                        <li>**Balcón:** Amplio</li>
+                        <li>**Personalización:** Obra Gris o Acabados</li>
+                    </ul>
+                    <a href="#contacto" class="btn-cta">Solicitar Plano</a>
+                </div>
+
+                <div class="tipologia-card">
+                    <h3>Torre A</h3>
+                    <img src="D:\ROB_GRAPHIC_DESIGN\Proyecto_LA_SAYE\webMaterial\1x\El_TA_tipo1.png" alt="Plano Tipología PH" class="plano-img">
+                    <ul class="tipologia-details">
+                        <li>**Área Total:** 110 m² (Dúplex)</li>
+                        <li>**Habitaciones:** 3 Dormitorios</li>
+                        <li>**Baños:** 3 Completos</li>
+                       
+                        <li>**Personalización:** Acabados Pde excelente calidad</li>
+                    </ul>
+                    <a href="#contacto" class="btn-cta" style="background-color: var(--color-secondary);">Asesoría Exclusiva</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="general-info" id="quienes-somos">
+        <div class="container">
+            <h2 class="section-title">Innovación y Calidad en <span style="color: var(--color-secondary);">La Saye</span></h2>
+            <div class="generic-content">
+                <p>La Saye es la constructora dedicada a transformar el entorno urbano de **Pupiales, Nariño**, a través de proyectos habitacionales y comerciales bien planificados. Nuestro enfoque en la **calidad, la transparencia y el cumplimiento** nos posiciona como la alternativa sólida para quienes buscan hogares que perduren y contribuyan al desarrollo local.</p>
+
+                <h3 style="margin-top: 30px; color: var(--color-primary);">Nuestros Pilares de Confianza</h3>
+                <ul style="list-style: none; padding: 0; display: inline-block; text-align: left;">
+                    <li>🏅 **Confianza:** Respaldo profesional en cada etapa, de la planeación a la entrega.</li>
+                    <li>🧱 **Excelente Calidad:** Materiales y construcción que superan los estándares de la región.</li>
+                    <li>♻️ **Innovación:** Enfoque arquitectónico moderno y adaptado al entorno local.</li>
+                    <li>🚀 **Compromiso Local:** Impulsamos el progreso y la inversión en nuestra comunidad.</li>
+                </ul>
+
+                <a href="#" class="btn-cta" style="margin-top: 20px;">Descubre la Historia de La Saye</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer" id="contacto">
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <h4>LA SAYE Constructora</h4>
+                <p>Construyendo el futuro con solidez y elegancia.</p>
+                <div class="social-links" style="margin-top: 15px;">
+                    <a href="https://www.instagram.com/lasaye.constructora/" target="_blank">IG</a>
+                    <a href="https://www.facebook.com/LaSaye.constructora">FB</a>
+                    <a href="https://www.tiktok.com/@la.saye.constructora">LN</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <nav class="footer-nav">
+                    <a href="#proyecto-galeria">Oro Andino</a>
+                    <a href="#amenidades">Amenidades</a>
+                    <a href="#tipologias">Tipologías</a>
+                    <a href="#quienes-somos">Confianza La Saye</a>
+                    <a href="#proyectos">Otros Proyectos</a>
+                    <a href="#">Política de Datos</a>
+                </nav>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contacto y Ventas</h4>
+                <p>📍 Sala de Ventas: Barrio El Centro, Pupiales </p>
+                <p>📞 Teléfono: +57 317 781 4781 – 317 323 2755 </p>
+                <p>📧 Email: lasaye.constructora@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
